@@ -1,5 +1,28 @@
 @extends('welcome')
 @section('dimitri')
+
+
+    <div class="grid grid-cols-6 gap-4">
+        <div class="bg-gray-900 ">
+            <input type="text" class="w-full">
+        </div>
+        <div class="bg-gray-900 ">
+            <input type="text" class="w-full">
+        </div>
+        <div class="bg-gray-900 ">
+            <input type="date" name="" class="w-full" id="">
+        </div>
+        <div class="bg-gray-900 ">
+            <input type="time" name="" id="" class="w-full">
+        </div>
+        <div class="bg-gray-900 ">
+            <input type="number" name="" id="" class="w-full">
+        </div>
+        <div class="bg-gray-900 ">
+            <input type="number" name="" id="" class="w-full">
+        </div>
+    </div>
+
     <div class=" md:px-10 px-4 py-12 font-[sans-serif]">
         <div class="mx-auto ">
             <h2 class="mb-8 text-3xl font-extrabold text-gray-100">Nouveaux trajets de la semaines</h2>
@@ -52,7 +75,7 @@
                                     <a href="javascript:void(0);" class="inline-block mt-4 text-sm text-blue-600 hover:underline">Read More</a>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 @empty
