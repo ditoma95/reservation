@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $trajets = Trajet::paginate(8);
+        $trajets = Trajet::paginate(4);
         return view('utilisateurs.index',compact('trajets'));
     }
 
