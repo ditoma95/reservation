@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreImpressionRequest;
 use App\Http\Requests\UpdateImpressionRequest;
 use App\Models\Impression;
-
+use Illuminate\Http\Request;
 class ImpressionController extends Controller
 {
     /**
@@ -14,6 +14,9 @@ class ImpressionController extends Controller
     public function index()
     {
         //
+
+        $impressions = Impression::all();
+        return view('templates.impression.index', ['impressions' => $impressions]);
     }
 
     /**
@@ -22,14 +25,36 @@ class ImpressionController extends Controller
     public function create()
     {
         //
+
+        return view('templates.impression.create');
+
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreImpressionRequest $request)
+    public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'avisService' => 'required|string',
+            'commentaire' => 'required|string',
+            'dateAvis' => 'required|string',
+        ]);
+
+        $impression = new Impression();
+        $impression->avisService = $request->avisService;
+        $impression->commentaire = $request->commentaire;
+        $impression->dateAvis = $request->dateAvis;
+        $impression->save();
+
+        //dump($voiture);
+
+        return redirect()->route('impressions.index')->with('success', 'impression ajouté avec succès');
+
+
     }
 
     /**
@@ -38,6 +63,7 @@ class ImpressionController extends Controller
     public function show(Impression $impression)
     {
         //
+        return view('templates.impression.show', ['impression' => $impression]);
     }
 
     /**
@@ -46,14 +72,26 @@ class ImpressionController extends Controller
     public function edit(Impression $impression)
     {
         //
+
+        return view('templates.impression.edit', ['impression' => $impression]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateImpressionRequest $request, Impression $impression)
+    public function update(Request $request, Impression $impression)
     {
         //
+        $data =$request->validate([
+            'avisService' => 'required|string',
+            'commentaire' => 'required|string',
+            'dateAvis' => 'required|string',
+        ]);
+
+        $impression->update($data);
+
+
+        return redirect()->route('impressions.index')->with('success', 'impresion modifié avec succès');
     }
 
     /**
@@ -62,5 +100,7 @@ class ImpressionController extends Controller
     public function destroy(Impression $impression)
     {
         //
+        $impression->delete();
+        return redirect()->route('impressions.index')->with('success', 'impresion supprimé avec succès');
     }
 }

@@ -19,7 +19,7 @@ class Reservation extends Model
     
     public function trajets()
     {
-        return $this->belongsTo(Trajet::class);
+        return $this->belongsTo(Trajet::class,"trajet_id");
     }
     
     public function paiement()

@@ -87,13 +87,13 @@ Route::get('/login/google/callback', [GoogleLoginController::class, 'handleGoogl
 
 
 //-----------Route pour la reservation-----------------
-// Route::get('reservations', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservations.index');
-// Route::post('reservations', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservations.store');
-// Route::get('reservations/create', [App\Http\Controllers\ReservationController::class, 'create'])->name('reservations.create');
-// Route::get('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'show'])->name('reservations.show');
-// Route::get('reservations/{reservation}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservations.edit');
-// Route::put('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('reservations.update');
-// Route::delete('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reservations.destroy');
+Route::get('reservations', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservations.index');
+Route::post('reservations', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservations.store');
+Route::get('reservations/create', [App\Http\Controllers\ReservationController::class, 'create'])->name('reservations.create');
+Route::get('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'show'])->name('reservations.show');
+Route::get('reservations/{reservation}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservations.edit');
+Route::put('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('reservations.update');
+Route::delete('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reservations.destroy');
 
 
 //-----------Route pour le paiement-----------------
@@ -120,13 +120,13 @@ Route::delete('voitures/{voiture}', [App\Http\Controllers\VoitureController::cla
 
 
 //-----------Route pour les impressions-----------------
-// Route::get('impressions', [App\Http\Controllers\ImpressionController::class, 'index'])->name('impressions.index');
-// Route::post('impressions', [App\Http\Controllers\ImpressionController::class, 'store'])->name('impressions.store');
-// Route::get('impressions/create', [App\Http\Controllers\ImpressionController::class, 'create'])->name('impressions.create');
-// Route::get('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'show'])->name('impressions.show');
-// Route::get('impressions/{impression}/edit', [App\Http\Controllers\ImpressionController::class, 'edit'])->name('impressions.edit');
-// Route::put('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'update'])->name('impressions.update');
-// Route::delete('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'destroy'])->name('trajets.destroy');
+Route::get('impressions', [App\Http\Controllers\ImpressionController::class, 'index'])->name('impressions.index');
+Route::post('impressions', [App\Http\Controllers\ImpressionController::class, 'store'])->name('impressions.store');
+Route::get('impressions/create', [App\Http\Controllers\ImpressionController::class, 'create'])->name('impressions.create');
+Route::get('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'show'])->name('impressions.show');
+Route::get('impressions/{impression}/edit', [App\Http\Controllers\ImpressionController::class, 'edit'])->name('impressions.edit');
+Route::put('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'update'])->name('impressions.update');
+Route::delete('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'destroy'])->name('trajets.destroy');
 
 //-----------Route pour une plainte-----------------
 // Route::get('plaintes', [App\Http\Controllers\PlainteController::class, 'index'])->name('plaintes.index');
