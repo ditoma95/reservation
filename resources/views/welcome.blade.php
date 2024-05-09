@@ -13,8 +13,8 @@
 {{-- bars dimitrios --}}
 <body class="antialiased bg-gray-500 ">
   <aside class="header">
-        <div class="w-full text-white dark-mode:text-gray-200 dark-mode:bg-gray-800 z-50 top-0 fixed ">
-          <div x-data="{ open: false }" class="flex bg-gray-800 flex-col px-4 mx-auto max-w-screen-3xl md:items-center md:justify-between md:flex-row md:px-6 lg:items-center lg:justify-between lg:flex-row lg:px-6 xl:items-center xl:justify-between xl:flex-row xl:px-6 sm:items-center sm:justify-between sm:flex-row sm:px-6">
+        <div class="fixed top-0 z-50 w-full text-white dark-mode:text-gray-200 dark-mode:bg-gray-800 ">
+          <div x-data="{ open: false }" class="flex flex-col px-4 mx-auto bg-gray-800 max-w-screen-3xl md:items-center md:justify-between md:flex-row md:px-6 lg:items-center lg:justify-between lg:flex-row lg:px-6 xl:items-center xl:justify-between xl:flex-row xl:px-6 sm:items-center sm:justify-between sm:flex-row sm:px-6">
               <div class="flex flex-row items-center justify-between p-6">
                   <a href="#" class="text-lg italic font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">TRACO</a>
                   <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -46,7 +46,7 @@
                                     <a class="px-4 py-2 mx-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white bt dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('login') }}">Connexion</a>
 
                                     @if (Route::has('register'))
-                                        <a class="px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white bt dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('register') }}">Inscription</a>
+                                        <a class="px-4 py-2 mt-2 text-sm font-semibold text-white rounded-lg bg-transparent-200 dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white bt dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('register') }}">Inscription</a>
                                     @endif
                                 @endauth
                             </div>
@@ -55,19 +55,9 @@
            </div>
 
             {{-- --------------------------- --}}
-
-                <h1 class="text-black mt-10">
-                    {{-- <div class="w-full">
-                        <video src="../vd.mp4" autoplay muted></video>
-                    </div> --}}
-
-                    <div>
-                        @yield('dimitri')
-                    </div>
-
-
-                </h1>
-
+            <div class="px-8 mt-4">
+                @yield('dimitri')
+            </div>
             {{-- --------------------------- --}}
     </div>
 

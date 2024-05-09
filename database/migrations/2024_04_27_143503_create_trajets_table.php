@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('trajets', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('voiture_id')->unique();
+            $table->unsignedInteger('voiture_id');
             $table->unsignedInteger('conducteur_id');
             $table->foreign('voiture_id')->references('id')->on('voitures')->onDelete('cascade');
             $table->foreign('conducteur_id')->references('id')->on('conducteurs')->onDelete('cascade');
