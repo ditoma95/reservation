@@ -12,7 +12,5 @@ npm install concurrently
 sudo chmod 777 script.sh
 ./script
 ```
-```
-Retrait des champs couleur et type et remplacer par voiture_image
-```
+
 
