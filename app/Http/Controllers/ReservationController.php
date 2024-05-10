@@ -38,8 +38,8 @@ class ReservationController extends Controller
         //
 
         $trajets = Trajet::all();
-        $passagers=Passager::all();
-        return view('templates.reservation.create', ['trajets' => $trajets, 'passagers'=>$passagers]);
+       
+        return view('templates.reservation.create', ['trajets' => $trajets]);
     }
 
     /**
@@ -97,8 +97,7 @@ class ReservationController extends Controller
     {
         //
         $trajets = Trajet::all();
-        $passage=Passager::all();
-        return view('templates.reservation.edit');
+        return view('templates.reservation.edit',['reservation' => $reservation,'trajets' => $trajets]);
     }
 
     /**
@@ -107,6 +106,20 @@ class ReservationController extends Controller
     public function update(Request $request, Reservation $reservation)
     {
         //
+
+        $data =$request->validate([
+            'dateDepart' => 'required|string',
+            'lieuDepart' => 'required|string|min:2',
+            'lieuArrive' => 'required|string|min:2',
+            'heurDepart' => 'required|string',
+            'nombrePlace' => 'required',
+            'trajet_id' => 'required',
+        ]);
+
+        $reservation->update($data);
+
+
+        return redirect()->route('reservations.index')->with('success', 'reservation modifié avec succès');
     }
 
     /**

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nombrePlace');
             $table->unsignedInteger('trajet_id');
             $table->foreign('trajet_id')->references('id')->on('trajets')->onDelete('cascade');
-            $table->unsignedInteger('passager_id')->unique();
+            $table->unsignedInteger('passager_id');
             $table->foreign('passager_id')->references('id')->on('passagers')->onDelete('cascade');
             
             $table->timestamps();
