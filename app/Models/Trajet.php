@@ -16,6 +16,7 @@ class Trajet extends Model
         'heurDepart',
         'lieuEscale',
         'tarif',
+        'nombrePlaceDisponible',
         'voiture_id',
     ];
     

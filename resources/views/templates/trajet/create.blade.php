@@ -34,6 +34,12 @@
                                 <input required type="number" name="tarif" placeholder="Tarif" min="0">
                             </div>
 
+
+                            <div class="grid col-span-6 sm:col-span-3">
+                                <label for="nombrePlaceDisponible" class="text-black">Nombre de place actuelement disponible</label>
+                                <input required type="number" name="nombrePlaceDisponible" placeholder="Place disponible">
+                            </div>
+
                             <div class="grid col-span-6 sm:col-span-3">
                                 <label for="heureDep" class="text-black">Heure Départ</label>
                                 <input required type="time" name="heurDepart" placeholder="Heure Départ">

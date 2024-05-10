@@ -49,6 +49,7 @@ class TrajetController extends Controller
             'heurDepart' => 'required|string',
             'dateDepart' => 'required|string',
             'tarif' => 'required',
+            'nombrePlaceDisponible' =>'required',
         ]);
 
 
@@ -68,6 +69,8 @@ class TrajetController extends Controller
         $trajet->heurDepart = $request->heurDepart;
         $trajet->dateDepart = $request->dateDepart;
         $trajet->tarif = $request->tarif;
+        $trajet->nombrePlaceDisponible =$request->nombrePlaceDisponible;
+        
         $trajet->save();
 
         return redirect()->route('trajets.index')->with('success', 'Trajet ajouté avec succès');
@@ -101,6 +104,7 @@ class TrajetController extends Controller
             'heurDepart' => 'required|string',
             'dateDepart' => 'required|string',
             'tarif' => 'required',
+            'nombrePlaceDisponible' =>'required',
         ]);
 
         $trajet->update($data);

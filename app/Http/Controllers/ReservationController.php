@@ -59,28 +59,39 @@ class ReservationController extends Controller
             
         ]);
 
-
+        $trajet = Trajet::findOrFail($request->trajet_id);
         
-        $reservation = new Reservation();
-
-        //ajouter passager_id
-       
-        $passager = User::find(Auth::id())->passager;
-        // dd($passager);
+        if ($trajet->nombrePlaceDisponible >= $request->nombrePlace) {
+            // Décrémentez le nombre de places disponibles
+            $trajet->nombrePlaceDisponible -= $request->nombrePlace;
+            $trajet->save();
         
-        $reservation->dateDepart = $request->dateDepart;
-        $reservation->lieuDepart = $request->lieuDepart;
-        $reservation->lieuArrive = $request->lieuArrive;
-        $reservation->heurDepart = $request->heurDepart;
-        $reservation->nombrePlace= $request->nombrePlace;
-        $reservation->trajet_id= $request->trajet_id;
-        $reservation->passager_id= $passager->id;
+            $reservation = new Reservation();
+
+            //ajouter passager_id
+           
+            $passager = User::find(Auth::id())->passager;
+            // dd($passager);
+            
+            $reservation->dateDepart = $request->dateDepart;
+            $reservation->lieuDepart = $request->lieuDepart;
+            $reservation->lieuArrive = $request->lieuArrive;
+            $reservation->heurDepart = $request->heurDepart;
+            $reservation->nombrePlace= $request->nombrePlace;
+            $reservation->trajet_id= $request->trajet_id;
+            $reservation->passager_id= $passager->id;
 
 
-        $reservation->save();
+            $reservation->save();
 
-        return redirect()->route('reservations.index')->with('success', 'reservation ajouté avec succès');
+            return redirect()->route('reservations.index')->with('success', 'reservation ajouté avec succès');
+        } else {
+            return redirect()->back()->with('error', 'Nombre de places insuffisant');
+        }
     }
+
+        
+    
 
     /**
      * Display the specified resource.
@@ -88,6 +99,8 @@ class ReservationController extends Controller
     public function show(Reservation $reservation)
     {
         //
+        $trajets = Trajet::all();
+        return view('templates.reservation.show', ['reservation' => $reservation ,'trajets' => $trajets]);
     }
 
     /**
