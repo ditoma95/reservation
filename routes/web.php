@@ -151,6 +151,6 @@ Route::delete('impressions/{impression}', [App\Http\Controllers\ImpressionContro
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('plaintes.index');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('utilisateurs/{trajet}', [App\Http\Controllers\HomeController::class, 'show'])->name('show');
 // Route::post('plaintes', [App\Http\Controllers\PlainteController::class, 'store'])->name('plaintes.store');
 // Route::get('plaintes/create', [App\Http\Controllers\PlainteController::class, 'create'])->name('plaintes.create');
-// Route::get('plaintes/{plainte}', [App\Http\Controllers\PlainteController::class, 'show'])->name('plaintes.show');

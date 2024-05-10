@@ -11,7 +11,7 @@
   <title>dimitrisation</title>
 </head>
 {{-- bars dimitrios --}}
-<body class="antialiased bg-gray-500 ">
+<body class="antialiased bg-gray-500 bars">
   <aside class="header">
         <div class="fixed top-0 z-50 w-full text-white dark-mode:text-gray-200 dark-mode:bg-gray-800 ">
           <div x-data="{ open: false }" class="flex flex-col px-4 mx-auto bg-gray-800 max-w-screen-3xl md:items-center md:justify-between md:flex-row md:px-6 lg:items-center lg:justify-between lg:flex-row lg:px-6 xl:items-center xl:justify-between xl:flex-row xl:px-6 sm:items-center sm:justify-between sm:flex-row sm:px-6">
