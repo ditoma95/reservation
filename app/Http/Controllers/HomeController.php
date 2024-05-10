@@ -10,10 +10,39 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $trajets = Trajet::paginate(4);
+        // $trajets = Trajet::paginate(4);
+        $query = Trajet::paginate(4);
+        $query = Trajet::query();
+
+        if (isset($request->lieuDepart) && ($request->lieuDepart != null)) {
+            $query->where('lieuDepart', $request->lieuDepart);
+        }
+
+        if (isset($request->lieuArrive) && ($request->lieuArrive != null)) {
+            $query->where('lieuArrive', $request->lieuArrive);
+        }
+
+        if (isset($request->heurDepart) && ($request->heurDepart != null)) {
+            $query->where('heurDepart', $request->heurDepart);
+        }
+
+        if (isset($request->dateDepart) && ($request->dateDepart != null)) {
+            $query->where('dateDepart', $request->dateDepart);
+        }
+
+        if (isset($request->tarif) && ($request->tarif != null)) {
+            $query->where('tarif', $request->tarif);
+        }
+
+        if (isset($request->nombrePlace) && ($request->nombrePlace != null)) {
+            $query->where('nombrePlace', $request->nombrePlace);
+        }
+
+        $trajets = $query->get();
+
         return view('utilisateurs.index',compact('trajets'));
     }
 
@@ -36,9 +65,9 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Trajet $trajet)
     {
-        //
+        return view('utilisateurs.show', ['trajet' => $trajet]);
     }
 
     /**

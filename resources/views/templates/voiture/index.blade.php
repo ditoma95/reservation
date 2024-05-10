@@ -27,9 +27,9 @@
                                 {{-- <img src="../img/cov.jpg" alt="Product 1" class="object-contain w-full h-full" /> --}}
                                 <img src="{{ asset('storage/' . $voiture->voiture_image) }}">
                                 {{-- @dd($voiture->voiture_image) --}}
-                                
-                                
-                                
+
+
+
                             </div>
 
                             <div class="p-6 bg-white">

@@ -335,3 +335,7 @@
 .common-carousel .swiper-button-prev svg {
   @apply w-auto h-auto;
 }
+
+.dm_vis{
+    @apply block;
+}
