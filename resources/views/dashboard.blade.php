@@ -1,9 +1,4 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot> --}}
     @if(auth()->user()->hasRole('super-admin|admin'))
         <div class="py-4">
             <div class="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-4">
