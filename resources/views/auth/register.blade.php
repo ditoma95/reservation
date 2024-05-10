@@ -26,7 +26,7 @@
                 <x-input id="profession" class="block w-full mt-1" type="text" name="profession" :value="old('profession')" required autofocus autocomplete="profession" />
             </div>
 
-            
+
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autocomplete="username" />
@@ -100,13 +100,13 @@
                       Already have an acoupt?
                     </a>
                 </div>
-                
+
                 <div class="flex items-center">
                     <a href="{{ route('login') }}" class="text-sm text-green-600 rounded-md hover:text-green-800">
                         {{ __('login') }}
                     </a>
                 </div>
-                
+
             </div>
         </form>
     </x-authentication-card>
@@ -120,12 +120,12 @@
         selection.addEventListener('click', (e)=>{
             let response = e.target.value;
             if (response === 'conducteur') {
-                
+
                 conductorios.classList.remove('hidden');
             }else if (response === 'passager') {
                 conductorios.classList.add('hidden');
             }
         })
-        
+
     </script>
 </x-guest-layout>
