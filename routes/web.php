@@ -41,13 +41,10 @@ Route::group(['middleware' => ['role:super-admin|admin']], function () {
     Route::get('permissions/{permission}/edit', [App\Http\Controllers\PermissionController::class, 'edit'])->name('permissions.edit');
     Route::put('permissions/{permission}', [App\Http\Controllers\PermissionController::class, 'update'])->name('permissions.update');
     Route::delete('permissions/{permission}', [App\Http\Controllers\PermissionController::class, 'destroy'])->name('permissions.destroy');
-});
 
-Route::group(['middleware' => ['role:super-admin|admin']], function () {
     Route::get('roles/{roleId}/give-permissions', [App\Http\Controllers\RoleController::class, 'addPermissionToRole']);
     Route::put('roles/{roleId}/give-permissions', [App\Http\Controllers\RoleController::class, 'givePermissionToRole']);
-});
-Route::group(['middleware' => ['role:super-admin|admin']], function () {
+
     // Routes pour les rôles
     Route::get('roles', [App\Http\Controllers\RoleController::class, 'index'])->name('roles.index');
     Route::post('roles', [App\Http\Controllers\RoleController::class, 'store'])->name('roles.store');
@@ -56,9 +53,7 @@ Route::group(['middleware' => ['role:super-admin|admin']], function () {
     Route::get('roles/{role}/edit', [App\Http\Controllers\RoleController::class, 'edit'])->name('roles.edit');
     Route::put('roles/{role}', [App\Http\Controllers\RoleController::class, 'update'])->name('roles.update');
     Route::delete('roles/{role}', [App\Http\Controllers\RoleController::class, 'destroy'])->name('roles.destroy');
-});
 
-Route::group(['middleware' => ['role:super-admin|admin']], function () {
     // Routes pour les utilisateurs
     Route::get('users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
     Route::post('users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
@@ -75,58 +70,46 @@ Route::group(['middleware' => ['role:super-admin|admin']], function () {
 Route::get('/login/google', [GoogleLoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
 
-
-
-
-
-
-//-----------------------------------------------Tâche en cours de réalisaton----------------------------------------
-
+// -==================================Permissions pour tous les utilisateurs=====================================================-
 //-----------Route pour le trajet-----------------
+Route::group(['middleware' => ['role:super-admin|admin|client']], function () {
+    Route::get('trajets', [App\Http\Controllers\TrajetController::class, 'index'])->name('trajets.index');
+    Route::post('trajets', [App\Http\Controllers\TrajetController::class, 'store'])->name('trajets.store');
+    Route::get('trajets/create', [App\Http\Controllers\TrajetController::class, 'create'])->name('trajets.create');
+    Route::get('trajets/{trajet}', [App\Http\Controllers\TrajetController::class, 'show'])->name('trajets.show');
+    Route::get('trajets/{trajet}/edit', [App\Http\Controllers\TrajetController::class, 'edit'])->name('trajets.edit');
+    Route::put('trajets/{trajet}', [App\Http\Controllers\TrajetController::class, 'update'])->name('trajets.update');
+    Route::delete('trajets/{trajet}', [App\Http\Controllers\TrajetController::class, 'destroy'])->name('trajets.destroy');
+
+    //-----------Route pour voiture-----------------
+    Route::get('voitures', [App\Http\Controllers\VoitureController::class, 'index'])->name('voitures.index');
+    Route::post('voitures', [App\Http\Controllers\VoitureController::class, 'store'])->name('voitures.store');
+    Route::get('voitures/create', [App\Http\Controllers\VoitureController::class, 'create'])->name('voitures.create');
+    Route::get('voitures/{voiture}', [App\Http\Controllers\VoitureController::class, 'show'])->name('voitures.show');
+    Route::get('voitures/{voiture}/edit', [App\Http\Controllers\VoitureController::class, 'edit'])->name('voitures.edit');
+    Route::put('voitures/{voiture}', [App\Http\Controllers\VoitureController::class, 'update'])->name('voitures.update');
+    Route::delete('voitures/{voiture}', [App\Http\Controllers\VoitureController::class, 'destroy'])->name('voitures.destroy');
 
 
-
-//-----------Route pour la reservation-----------------
-Route::get('reservations', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservations.index');
-Route::post('reservations', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservations.store');
-Route::get('reservations/create', [App\Http\Controllers\ReservationController::class, 'create'])->name('reservations.create');
-Route::get('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'show'])->name('reservations.show');
-Route::get('reservations/{reservation}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservations.edit');
-Route::put('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('reservations.update');
-Route::delete('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reservations.destroy');
-
-
-//-----------Route pour le paiement-----------------
-
-
-//-----------Route pour le trajet-----------------
-Route::get('trajets', [App\Http\Controllers\TrajetController::class, 'index'])->name('trajets.index');
-Route::post('trajets', [App\Http\Controllers\TrajetController::class, 'store'])->name('trajets.store');
-Route::get('trajets/create', [App\Http\Controllers\TrajetController::class, 'create'])->name('trajets.create');
-Route::get('trajets/{trajet}', [App\Http\Controllers\TrajetController::class, 'show'])->name('trajets.show');
-Route::get('trajets/{trajet}/edit', [App\Http\Controllers\TrajetController::class, 'edit'])->name('trajets.edit');
-Route::put('trajets/{trajet}', [App\Http\Controllers\TrajetController::class, 'update'])->name('trajets.update');
-Route::delete('trajets/{trajet}', [App\Http\Controllers\TrajetController::class, 'destroy'])->name('trajets.destroy');
-
-
-//-----------Route pour voiture-----------------
-Route::get('voitures', [App\Http\Controllers\VoitureController::class, 'index'])->name('voitures.index');
-Route::post('voitures', [App\Http\Controllers\VoitureController::class, 'store'])->name('voitures.store');
-Route::get('voitures/create', [App\Http\Controllers\VoitureController::class, 'create'])->name('voitures.create');
-Route::get('voitures/{voiture}', [App\Http\Controllers\VoitureController::class, 'show'])->name('voitures.show');
-Route::get('voitures/{voiture}/edit', [App\Http\Controllers\VoitureController::class, 'edit'])->name('voitures.edit');
-Route::put('voitures/{voiture}', [App\Http\Controllers\VoitureController::class, 'update'])->name('voitures.update');
-Route::delete('voitures/{voiture}', [App\Http\Controllers\VoitureController::class, 'destroy'])->name('voitures.destroy');
+    Route::get('reservations', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservations.index');
+    Route::post('reservations', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservations.store');
+    Route::get('reservations/create', [App\Http\Controllers\ReservationController::class, 'create'])->name('reservations.create');
+    Route::get('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'show'])->name('reservations.show');
+    Route::get('reservations/{reservation}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservations.edit');
+    Route::put('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('reservations.update');
+    Route::delete('reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reservations.destroy');
 
 
 //-----------Route pour les impressions-----------------
-Route::get('impressions', [App\Http\Controllers\ImpressionController::class, 'index'])->name('impressions.index');
-Route::post('impressions', [App\Http\Controllers\ImpressionController::class, 'store'])->name('impressions.store');
-Route::get('impressions/create', [App\Http\Controllers\ImpressionController::class, 'create'])->name('impressions.create');
-Route::get('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'show'])->name('impressions.show');
-Route::get('impressions/{impression}/edit', [App\Http\Controllers\ImpressionController::class, 'edit'])->name('impressions.edit');
-Route::put('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'update'])->name('impressions.update');
-Route::delete('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'destroy'])->name('trajets.destroy');
+    Route::get('impressions', [App\Http\Controllers\ImpressionController::class, 'index'])->name('impressions.index');
+    Route::post('impressions', [App\Http\Controllers\ImpressionController::class, 'store'])->name('impressions.store');
+    Route::get('impressions/create', [App\Http\Controllers\ImpressionController::class, 'create'])->name('impressions.create');
+    Route::get('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'show'])->name('impressions.show');
+    Route::get('impressions/{impression}/edit', [App\Http\Controllers\ImpressionController::class, 'edit'])->name('impressions.edit');
+    Route::put('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'update'])->name('impressions.update');
+    Route::delete('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'destroy'])->name('trajets.destroy');
+
+});
 
 //-----------Route pour une plainte-----------------
 // Route::get('plaintes', [App\Http\Controllers\PlainteController::class, 'index'])->name('plaintes.index');
