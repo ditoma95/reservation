@@ -109,27 +109,27 @@ Route::group(['middleware' => ['role:super-admin|admin|client']], function () {
     Route::put('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'update'])->name('impressions.update');
     Route::delete('impressions/{impression}', [App\Http\Controllers\ImpressionController::class, 'destroy'])->name('trajets.destroy');
 
+
+    //-----------Route pour une plainte-----------------
+    // Route::get('plaintes', [App\Http\Controllers\PlainteController::class, 'index'])->name('plaintes.index');
+    // Route::post('plaintes', [App\Http\Controllers\PlainteController::class, 'store'])->name('plaintes.store');
+    // Route::get('plaintes/create', [App\Http\Controllers\PlainteController::class, 'create'])->name('plaintes.create');
+    // Route::get('plaintes/{plainte}', [App\Http\Controllers\PlainteController::class, 'show'])->name('plaintes.show');
+    // Route::get('plaintes/{plainte}/edit', [App\Http\Controllers\PlainteController::class, 'edit'])->name('plaintes.edit');
+    // Route::put('plaintes/{plainte}', [App\Http\Controllers\PlainteController::class, 'update'])->name('plaintes.update');
+    // Route::delete('plaintes/{plainte}', [App\Http\Controllers\PlainteController::class, 'destroy'])->name('plaintes.destroy');
+
+
+    //-----------Route pour une reclamation-----------------
+    // Route::get('reclamations', [App\Http\Controllers\ReclamationController::class, 'index'])->name('reclamations.index');
+    // Route::post('reclamations', [App\Http\Controllers\ReclamationController::class, 'store'])->name('reclamations.store');
+    // Route::get('reclamations/create', [App\Http\Controllers\ReclamationController::class, 'create'])->name('reclamations.create');
+    // Route::get('reclamations/{reclamation}', [App\Http\Controllers\ReclamationController::class, 'show'])->name('reclamations.show');
+    // Route::get('reclamations/{reclamation}/edit', [App\Http\Controllers\ReclamationController::class, 'edit'])->name('reclamations.edit');
+    // Route::put('reclamations/{reclamation}', [App\Http\Controllers\ReclamationController::class, 'update'])->name('reclamations.update');
+    // Route::delete('reclamations/{reclamation}', [App\Http\Controllers\ReclamationController::class, 'destroy'])->name('reclamations.destroy');
+
 });
-
-//-----------Route pour une plainte-----------------
-// Route::get('plaintes', [App\Http\Controllers\PlainteController::class, 'index'])->name('plaintes.index');
-// Route::post('plaintes', [App\Http\Controllers\PlainteController::class, 'store'])->name('plaintes.store');
-// Route::get('plaintes/create', [App\Http\Controllers\PlainteController::class, 'create'])->name('plaintes.create');
-// Route::get('plaintes/{plainte}', [App\Http\Controllers\PlainteController::class, 'show'])->name('plaintes.show');
-// Route::get('plaintes/{plainte}/edit', [App\Http\Controllers\PlainteController::class, 'edit'])->name('plaintes.edit');
-// Route::put('plaintes/{plainte}', [App\Http\Controllers\PlainteController::class, 'update'])->name('plaintes.update');
-// Route::delete('plaintes/{plainte}', [App\Http\Controllers\PlainteController::class, 'destroy'])->name('plaintes.destroy');
-
-
-//-----------Route pour une reclamation-----------------
-// Route::get('reclamations', [App\Http\Controllers\ReclamationController::class, 'index'])->name('reclamations.index');
-// Route::post('reclamations', [App\Http\Controllers\ReclamationController::class, 'store'])->name('reclamations.store');
-// Route::get('reclamations/create', [App\Http\Controllers\ReclamationController::class, 'create'])->name('reclamations.create');
-// Route::get('reclamations/{reclamation}', [App\Http\Controllers\ReclamationController::class, 'show'])->name('reclamations.show');
-// Route::get('reclamations/{reclamation}/edit', [App\Http\Controllers\ReclamationController::class, 'edit'])->name('reclamations.edit');
-// Route::put('reclamations/{reclamation}', [App\Http\Controllers\ReclamationController::class, 'update'])->name('reclamations.update');
-// Route::delete('reclamations/{reclamation}', [App\Http\Controllers\ReclamationController::class, 'destroy'])->name('reclamations.destroy');
-
 
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('plaintes.index');

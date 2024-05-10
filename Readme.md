@@ -13,6 +13,3 @@ sudo chmod 777 script.sh
 ./script
 ```
 
-je suis content
-
-
