@@ -28,7 +28,6 @@ class ImpressionController extends Controller
 
         return view('templates.impression.create');
 
-
     }
 
     /**

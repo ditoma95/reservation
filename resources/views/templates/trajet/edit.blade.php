@@ -43,6 +43,11 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-3 grid">
+                                <label for="nombrePlaceDisponible" class="text-black">Nombre de place disponible</label>
+                                <input required type="number" name="nombrePlaceDisponible" value="{{ $trajet->nombrePlaceDisponible }}" placeholder="place disponible" min="0">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3 grid">
                                 <label for="heureDep" class="text-black">Heure Départ</label>
                                 <input required type="time" name="heurDepart" value="{{ $trajet->heurDepart }}" placeholder="Heure Départ">
                             </div>

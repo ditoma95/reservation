@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('heurDepart');
             $table->string('lieuEscale');
             $table->integer('tarif');
+            $table->integer('nombrePlaceDisponible');
             $table->timestamps();
         });
     }

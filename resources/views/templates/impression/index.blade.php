@@ -3,7 +3,7 @@
         <div class="p-4 mx-auto lg:max-w-8xl sm:max-w-full">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-xl font-extrabold text-gray-800 mb-8">Listes des trajets</h2>
+                    <h2 class="text-xl font-extrabold text-gray-800 mb-8">Listes des impression</h2>
                 </div>
                 <div>
                     <a href=" {{ route('impressions.create') }} " class="bg-green-700 p-2 rounded-md hover:bg-green-900 text-white">Ajouter une impression</a>
@@ -13,7 +13,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
                     @forelse ($impressions as $impression)
                         <div class="bg-gray-50 shadow-md overflow-hidden rounded cursor-pointer hover:-translate-y-2 transition-all relative">
-                            <div
+                            {{-- <div
                                 class="bg-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-3 right-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18px" class="fill-red-800 inline-block" viewBox="0 0 64 64">
                                 <path
@@ -24,19 +24,19 @@
 
                             <div class="w-11/12 h-[240px] p-4 overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
                                 <img src="../img/cov.jpg" alt="Product 1" class="h-full w-full object-contain" />
-                            </div>
+                            </div> --}}
 
-                            <div class="p-6 bg-white">
-                                <div class="flex justify-between mb-4 bg-black px-4 py-2 rounded-xl">
-                                    <h3 class="text-lg font-extrabold text-gray-800">
-                                        <h3 class="text-white italic">Avis du service : </h3>
+                            <div class="p-8 bg-white">
+                                <div class="mb-5 bg-black px-7 py-4 rounded-xl">
+                                    <div class="text-sm  text-gray-800 flex items-center" >
+                                        <h3 class="text-white italic  " >Avis du service : </h3>
                                         <p class="text-yellow-400 font-bold"> {{ $impression->avisService}} </p>
-                                    </h3>
+                                    </div>
 
-                                    <h3 class="text-lg font-extrabold text-gray-800">
+                                    <div class="text-sm  text-gray-800 flex items-center">
                                         <h3 class="text-white italic">Commentaire : </h3>
                                         <p class="text-yellow-400 font-bold">{{ $impression->commentaire}}</p>
-                                    </h3>
+                                    </div>
 
                                 </div>
 
@@ -65,6 +65,15 @@
                                                 </svg>
                                             </button>
                                         </form>
+                                    </div>
+
+                                    <div>
+                                        <a href=" {{ route('impressions.show', $impression->id) }} " class="text-indigo-600 hover:text-indigo-900">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-850 cursor-pointer">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                        </a>
                                     </div>
                                 </div>
 

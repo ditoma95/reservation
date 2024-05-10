@@ -15,6 +15,7 @@ class Reservation extends Model
         'heurDepart',
         'nombrePlace',
         
+        
     ];
     
     public function trajets()
