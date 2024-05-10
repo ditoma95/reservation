@@ -50,6 +50,7 @@
                         </span>
                     </a>
                     <!-- end::Menu link -->
+                    @if(auth()->user()->hasRole('super-admin|admin'))
 
                     <p class="px-6 mt-10 mb-2 text-xs text-gray-600 uppercase">Administration</p>
 
@@ -113,6 +114,7 @@
 
                         <!-- end::Submenu -->
                     </div>
+                    @endif
                     <!-- end::Menu link -->
 
                     <!-- start::Menu link -->
@@ -163,6 +165,7 @@
 
 {{-- --------------------------------------------------------------Voitures------------------------------------------------------------------------------- --}}
                     <!-- start::Menu link -->
+                    @if(auth()->user()->hasRole('super-admin|admin'))
                     <div x-data="{ linkHover: false, linkActive: false }" >
                         <div   @mouseover = "linkHover = true"  @mouseleave = "linkHover = false"  @click = "linkActive = !linkActive"  class="flex items-center justify-between px-6 py-3 text-gray-400 transition duration-200 cursor-pointer hover:text-gray-100 hover:bg-black hover:bg-opacity-30"  :class=" linkActive ? 'bg-black bg-opacity-30 text-gray-100' : ''"  >
                             <div class="flex items-center">
@@ -195,10 +198,10 @@
                         </ul>
                         <!-- end::Submenu -->
                     </div>
+                    @endif
 
                     <!-- start::Menu link -->
-                    {{-- @if(auth()->user()->hasRole('super-admin|admin'))
-                    @endif --}}
+                    @if(auth()->user()->hasRole('super-admin|admin'))
                     <div x-data="{ linkHover: false, linkActive: false }" >
                         <div   @mouseover = "linkHover = true"  @mouseleave = "linkHover = false"  @click = "linkActive = !linkActive"  class="flex items-center justify-between px-6 py-3 text-gray-400 transition duration-200 cursor-pointer hover:text-gray-100 hover:bg-black hover:bg-opacity-30"  :class=" linkActive ? 'bg-black bg-opacity-30 text-gray-100' : ''"  >
                             <div class="flex items-center">
@@ -231,6 +234,8 @@
                         </ul>
                         <!-- end::Submenu -->
                     </div>
+                    @endif
+
 
 {{-- --------------------------------------------------------------Reservations------------------------------------------------------------------------------- --}}
                         <!-- start::Menu link -->
@@ -340,6 +345,7 @@
 
 {{-- --------------------------------------------------------------Encaissers------------------------------------------------------------------------------- --}}
                     <!-- start::Menu link -->
+                    @if(auth()->user()->hasRole('super-admin|admin'))
                     <div x-data="{ linkHover: false, linkActive: false }" >
                         <div   @mouseover = "linkHover = true"  @mouseleave = "linkHover = false"  @click = "linkActive = !linkActive"  class="flex items-center justify-between px-6 py-3 text-gray-400 transition duration-200 cursor-pointer hover:text-gray-100 hover:bg-black hover:bg-opacity-30"  :class=" linkActive ? 'bg-black bg-opacity-30 text-gray-100' : ''"  >
                             <div class="flex items-center">
@@ -372,6 +378,7 @@
                         </ul>
                         <!-- end::Submenu -->
                     </div>
+                    @endif
 
 
 {{-- --------------------------------------------------------------Impressions------------------------------------------------------------------------------- --}}
