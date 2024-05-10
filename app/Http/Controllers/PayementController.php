@@ -71,26 +71,32 @@ class PayementController extends Controller
         //
     }
 
-    public function paiement($tarif, $trajet)
+   
+
+    // public function tymoneyflooz($tarif, $trajet)
+    public function tefo($tarif, $trajet)
     {
         // URL de l'API distante
         $url = 'https://paygateglobal.com/v1/page';
 
+        // Générer un identifiant unique
+        $identifier = Str::random(64);
+
         // Paramètres à envoyer avec la requête GET
         $params = [
             'token' => '3ac1031f-e535-4776-a2ca-7e504ef6d5e1',
-            'amount' => 0,
-            'identifier'=>Str::random(64),
-            'url'=> route("paiement_success",["tarif"=> $tarif, "trajet"=> $trajet]),
+            'amount' => $tarif,
+            'identifier' => $identifier,
+            'url' => route('dashboard', ["tarif" => $tarif, "trajet" => $trajet]),
         ];
 
-        // Effectuer la requête GET avec les paramètres
+        // Requête GET avec les paramètres
         $response = Http::get($url, $params);
-        $token = '3ac1031f-e535-4776-a2ca-7e504ef6d5e1';
-        $re = $url."?token=$token"
-                    ."&amount=0"
-                    ."&identifier=azertyuiop".
-                    "&url=".$params["identifier"];
-        return redirect($re);
+
+        // Construire le lien de redirection
+        $redirectUrl = $url . "?" . http_build_query($params);
+
+        return redirect($redirectUrl);
     }
+
 }
