@@ -24,7 +24,7 @@ class Reservation extends Model
     
     public function paiement()
     {
-        return $this->hasOne(Paiement::class);
+        return $this->hasOne(Payement::class);
     }
     
     public function passager()
